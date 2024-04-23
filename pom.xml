@@ -5,32 +5,36 @@
   <version>0.0.1-SNAPSHOT</version>
   
   <dependencies>
-	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 	<dependency>
 	    <groupId>org.seleniumhq.selenium</groupId>
 	    <artifactId>selenium-java</artifactId>
 	    <version>4.19.1</version>
 	</dependency>
-	<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
-	<dependency>
-	    <groupId>info.cukes</groupId>
-	    <artifactId>cucumber-java</artifactId>
-	    <version>1.2.6</version>
-	    <scope>test</scope>
-	</dependency>
-	<!-- https://mvnrepository.com/artifact/junit/junit -->
+	
 	<dependency>
 	    <groupId>junit</groupId>
 	    <artifactId>junit</artifactId>
 	    <version>4.13.2</version>
 	    <scope>test</scope>
 	</dependency>
-	<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-junit -->
+	
 	<dependency>
-	    <groupId>info.cukes</groupId>
-	    <artifactId>cucumber-junit</artifactId>
-	    <version>1.2.6</version>
-	    <scope>test</scope>
-	</dependency>
+        <artifactId>cucumber-java</artifactId>
+        <groupId>io.cucumber</groupId>
+        <version>4.8.1</version>
+        <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+        <artifactId>cucumber-junit</artifactId>
+        <groupId>io.cucumber</groupId>
+        <version>4.8.1</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>com.drops.opensite</groupId>
+    	<artifactId>opensite</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>
