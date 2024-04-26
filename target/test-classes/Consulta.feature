@@ -10,17 +10,22 @@ Feature: Caminho Feliz (19/04/2024)
     When clicar no item "Exames" no navbar
     Then apresenta pagina "exames"
 
-# Trabalhando em cenário    
-# Scenario: Abrir aba "Eventos"
-#   Given cliente acessa site Iterasys
-#   When clicar no item "Eventos" no navbar
-#   Then apresenta pagina "Eventos"
+	Scenario: Abrir aba "Conhecer, Competir, Crescer"
+	  Given cliente acessa site Iterasys
+	  When clicar no item "Eventos" no navbar
+	  And clicar no item "Conhecer, Competir, Crescer"
+	  Then apresenta pagina "conhecer-competir-crescer"
 
-# Trabalhando em cenário   
-#  Scenario: Abrir aba "Comunidade"
-#    Given cliente acessa site Iterasys
-#    When clicar no item "Comunidade" no navbar
-#    Then apresenta pagina "comunidade"
+	Scenario: Abrir aba "Eventos Anteriores"
+	  Given cliente acessa site Iterasys
+	  When clicar no item "Eventos" no navbar
+	  And clicar no item "Eventos Anteriores"
+	  Then apresenta pagina "eventos"
+
+  Scenario: Abrir aba "Comunidade"
+    Given cliente acessa site Iterasys
+    When clicar no item "Comunidade" no navbar
+    Then apresenta pagina "comunidade"
     
     
   Scenario: Abrir aba "Sobre"

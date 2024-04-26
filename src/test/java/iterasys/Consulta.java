@@ -22,8 +22,10 @@ import io.cucumber.java.en.When;
 
 public class Consulta {
 	
+	// Variáveis utilizadas em mais de um método
 	String url;
 	String originalHandle;
+	String currentUrl;
 	WebDriver driver;
 	
 	@Before
@@ -55,7 +57,10 @@ public class Consulta {
         // Troca para a nova aba
         for (String handle : handles) {
             if (!handle.equals(originalHandle)) {
+            	System.out.println(originalHandle);
                 driver.switchTo().window(handle);
+                System.out.println(handles);
+                System.out.println(handle);
                 break;
             }
         }
@@ -86,7 +91,7 @@ public class Consulta {
 		mudar_nova_aba();
 
 	    // Recebe nova URL como valor
-	    String currentUrl = driver.getCurrentUrl();
+	    currentUrl = driver.getCurrentUrl();
 
 	    // Checa se URL atual é a esperada
 	    assertTrue(currentUrl.contains("udemy.com"));
@@ -98,20 +103,36 @@ public class Consulta {
 	
 	@When("clicar no item {string} no navbar")
 	public void clicar_no_item_no_navbar(String string) throws Throwable {
+		// Captura o identificador da aba original
+	    originalHandle = driver.getWindowHandle();
+	    
 		driver.findElement(By.xpath("//div[contains(text(), '" + string + "')]")).click();		
+		Thread.sleep(3000);
+	}
+	
+	@When("clicar no item {string}")
+	public void clicar_no_item(String string) throws Throwable {
+		// Captura o identificador da aba original
+	    originalHandle = driver.getWindowHandle();
+	    
+		driver.findElement(By.xpath("//p[contains(text(), '" + string + "')]")).click();		
 		Thread.sleep(3000);
 	}
 
 	@Then("apresenta pagina {string}")
 	public void apresenta_pagina(String string) throws Throwable {
-		// Recebe nova URL como valor
-	    String currentUrl = driver.getCurrentUrl();
-	    
+	    	    
 	    // Checa se URL atual é a esperada
 	    if (string.equals("comunidade")) {
 	    	mudar_nova_aba();
+	    	// Recebe nova URL como valor
+		    currentUrl = driver.getCurrentUrl();
+		    
 	    	assertTrue(currentUrl.contains("start-here"));
 	    } else {
+	    	// Recebe nova URL como valor
+		    currentUrl = driver.getCurrentUrl();
+		    
 	    	assertTrue(currentUrl.contains(string));
 	    }
 	    
